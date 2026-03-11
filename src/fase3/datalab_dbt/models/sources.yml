@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: bronze_data # Un nombre lógico para nuestro origen de datos
+    description: "Capa Bronze con datos crudos del data lab."
+    schema: 'default' # Usamos el schema por defecto que configuramos en profiles.yml
+    tables:
+      - name: ventas
+        description: "Tabla de ventas crudas en formato Parquet."
+        # ¡IMPORTANTE! Aquí le decimos a dbt dónde encontrar la tabla física.
+        # El identificador es la ruta a nuestros archivos Parquet.
+        identifier: "/home/coder/project/warehouse/bronze/ventas"

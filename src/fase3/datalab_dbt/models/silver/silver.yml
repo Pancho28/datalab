@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: slv_ventas
+    description: "Este modelo limpia y estandariza los datos de transacciones de ventas de la capa Bronze. Cada fila representa una única transacción de venta."
+    columns:
+      - name: venta_id
+        description: "El identificador único para cada transacción de venta."
+        tests:
+          - not_null
+
+      - name: tienda_id
+        description: "El identificador de la tienda donde ocurrió la transacción."
+        tests:
+          - not_null
+
+      - name: monto
+        description: "El monto total de la transacción. Se han filtrado los montos negativos."
+        tests:
+          - not_null
+
+      - name: fecha_venta
+        description: "La fecha y hora en que se realizó la transacción (en formato TIMESTAMP)."
+        tests:
+          - not_null
+
+      - name: anio_venta
+        description: "Año extraído de la fecha de la venta para facilitar el particionamiento y las consultas."
+
+      - name: mes_venta
+        description: "Mes extraído de la fecha de la venta."
+
+      - name: dia_venta
+        description: "Día extraído de la fecha de la venta."
+
+      - name: dia_semana_venta
+        description: "Día de la semana extraído de la fecha de la venta (ej: 1 para Domingo, 2 para Lunes, etc.)."

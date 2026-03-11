@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: gld_ventas_tiendas
+    description: "Modelo de negocio que agrega las ventas a nivel de tienda. Proporciona una vista resumida con métricas clave por cada tienda."
+    columns:
+      - name: tienda_id
+        description: "El identificador único de la tienda. Es la clave primaria de este modelo."
+        tests:
+          - unique
+          - not_null
+
+      - name: monto_total_ventas
+        description: "La suma total de los montos de todas las ventas para una tienda específica."
+        tests:
+          - not_null
+
+      - name: numero_de_transacciones
+        description: "El conteo total de transacciones realizadas en esa tienda."
+        tests:
+          - not_null
+
+      - name: monto_promedio_por_transaccion
+        description: "El monto promedio por cada transacción en la tienda."
+        tests:
+          - not_null

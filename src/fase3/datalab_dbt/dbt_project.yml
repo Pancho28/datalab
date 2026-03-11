@@ -1,0 +1,37 @@
+# Nombre del proyecto. Requerido.
+name: 'datalab_dbt'
+version: '1.0.0'
+config-version: 2
+
+# El perfil de tu proyecto. Busca un perfil con este nombre en
+# tu archivo profiles.yml, o lo crea si no existe.
+profile: 'datalab_dbt'
+
+# Estas son las rutas de las carpetas donde dbt buscará los diferentes tipos de archivos.
+# No es necesario cambiarlas a menos que quieras una estructura de proyecto diferente.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Configuración para cuando los modelos son ejecutados desde la raíz del proyecto.
+# Limpia las carpetas 'target' y 'dbt_packages' antes de cada ejecución.
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# ----------------------------------------------------------------------------------
+# NUEVA CONFIGURACIÓN PARA EL DATA LAB
+# ----------------------------------------------------------------------------------
+# Configuración de los Modelos
+# Esto le dice a dbt cómo y dónde materializar los modelos para este proyecto.
+models:
+  datalab_dbt:
+    silver:
+      +materialized: table
+      +location_root: '/home/coder/project/warehouse/silver'
+    gold:
+      +materialized: table
+      +location_root: '/home/coder/project/warehouse/gold'

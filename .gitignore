@@ -1,0 +1,106 @@
+# .gitignore para el Proyecto Data Lab
+
+# -----------------------------------------------------------------------------
+# Carpetas y archivos solicitados explícitamente
+# -----------------------------------------------------------------------------
+
+# Entorno virtual de Python
+/venv/
+
+# Datos crudos y warehouse procesado (se asume que los datos son muy grandes o privados)
+/data/
+/warehouse/
+
+# Carpetas de desarrollo, depuración y logs
+/debug/
+/log/
+/logs/
+
+# Carpetas del sistema en caso de caidas
+/lost+found/
+
+# Archivos de configuración y extensiones del IDE (Continue y VS Code)
+/.extensions/
+/.continue/
+/.continue_config/
+
+# -----------------------------------------------------------------------------
+# Patrones estándar de Python
+# -----------------------------------------------------------------------------
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Directorios de distribución/empaquetado
+/build/
+/dist/
+/downloads/
+/eggs/
+/*.egg-info/
+
+# Archivos de entorno virtual específicos de otras herramientas
+.python-version
+.venv
+pip-wheel-metadata/
+
+# -----------------------------------------------------------------------------
+# Patrones estándar de dbt
+# -----------------------------------------------------------------------------
+
+# Paquetes y dependencias de dbt
+/dbt_packages/
+
+# Directorio de compilación de dbt (contiene modelos compilados, logs, etc.)
+/target/
+
+# -----------------------------------------------------------------------------
+# Patrones de PySpark y Big Data
+# -----------------------------------------------------------------------------
+
+# Metastore local de Hive/Spark (creado por defecto en el directorio de trabajo)
+/metastore_db/
+/derby.log
+/src/fase3/logs/
+
+# Checkpoints de Spark Streaming
+/checkpoints/
+
+# Archivos de salida parciales de Hadoop/Spark
+._SUCCESS.crc
+.part-*.crc
+_SUCCESS
+
+# -----------------------------------------------------------------------------
+# Archivos de configuración del IDE y del sistema operativo
+# -----------------------------------------------------------------------------
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# ¡MUY IMPORTANTE! Secretos, credenciales y archivos de entorno
+# -----------------------------------------------------------------------------
+
+# Archivos de entorno que contienen variables y secretos
+.env*
+*.env
+
+# Credenciales de servicios en la nube (AWS, GCP, etc.)
+.aws/
+.gcp/
+credentials.json
+*.pem
+*.key
+
+# Cualquier archivo que contenga la palabra "secret" o "token"
+*secret*
+*token*

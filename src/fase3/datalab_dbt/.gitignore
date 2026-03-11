@@ -1,0 +1,7 @@
+
+target/
+dbt_packages/
+logs/
+metastore_db/
+derby.log
+spark-warehouse/my_first_dbt_model

@@ -1,0 +1,16 @@
+# Este archivo define CÓMO se conecta dbt a tu data warehouse.
+
+datalab_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: spark
+      method: session
+      schema: default
+      host: localhost
+      conf:
+        # Aumentamos la memoria del driver de Spark a 2 Gigabytes.
+        spark.driver.memory: "4g"
+        # Reducimos el número de particiones para shuffle. El default (200) es excesivo
+        # para un entorno local y genera una sobrecarga innecesaria.
+        spark.sql.shuffle.partitions: "8"
